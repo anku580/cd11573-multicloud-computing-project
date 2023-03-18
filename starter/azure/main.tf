@@ -33,8 +33,8 @@ resource "azurerm_container_group" "udacity" {
 
 resource "azurerm_sql_server" "example" {
   name                         = "udacity-angarg-sql-server"
-  resource_group_name          = data.azurerm_resource_group.example.name
-  location                     = data.azurerm_resource_group.example.location
+  resource_group_name          = data.azurerm_resource_group.udacity.name
+  location                     = data.azurerm_resource_group.udacity.location
   version                      = "12.0"
   administrator_login          = "4dm1n157r470r"
   administrator_login_password = "4-v3ry-53cr37-p455w0rd"
@@ -46,16 +46,16 @@ resource "azurerm_sql_server" "example" {
 
 resource "azurerm_storage_account" "example" {
   name                     = "examplesa"
-  resource_group_name      = data.azurerm_resource_group.example.name
-  location                 = data.azurerm_resource_group.example.location
+  resource_group_name      = data.azurerm_resource_group.udacity.name
+  location                 = data.azurerm_resource_group.udacity.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
 resource "azurerm_sql_database" "example" {
   name                = "udacity-angarg-database"
-  resource_group_name = data.azurerm_resource_group.example.name
-  location            = data.azurerm_resource_group.example.location
+  resource_group_name = data.azurerm_resource_group.udacity.name
+  location            = data.azurerm_resource_group.udacity.location
   server_name         = azurerm_sql_server.example.name
 
   tags = {
@@ -65,8 +65,8 @@ resource "azurerm_sql_database" "example" {
 
 resource "azurerm_app_service_plan" "example" {
   name                = "angarg-appserviceplan"
-  location            = data.azurerm_resource_group.example.location
-  resource_group_name = data.azurerm_resource_group.example.name
+  location            = data.azurerm_resource_group.udacity.location
+  resource_group_name = data.azurerm_resource_group.udacity.name
 
   sku {
     tier = "Standard"
@@ -76,8 +76,8 @@ resource "azurerm_app_service_plan" "example" {
 
 resource "azurerm_app_service" "example" {
   name                = "udacity-angarg-app-service"
-  location            = data.azurerm_resource_group.example.location
-  resource_group_name = data.azurerm_resource_group.example.name
+  location            = data.azurerm_resource_group.udacity.location
+  resource_group_name = data.azurerm_resource_group.udacity.name
   app_service_plan_id = azurerm_app_service_plan.example.id
 
   site_config {
