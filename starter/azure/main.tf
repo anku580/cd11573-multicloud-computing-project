@@ -64,7 +64,7 @@ resource "azurerm_sql_database" "example" {
 }
 
 resource "azurerm_app_service_plan" "example" {
-  name                = "angarg-appserviceplan"
+  name                = "example-appserviceplan"
   location            = data.azurerm_resource_group.udacity.location
   resource_group_name = data.azurerm_resource_group.udacity.name
 
