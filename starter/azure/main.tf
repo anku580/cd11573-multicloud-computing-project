@@ -45,7 +45,7 @@ resource "azurerm_sql_server" "example" {
 }
 
 resource "azurerm_storage_account" "example" {
-  name                     = "examplesa"
+  name                     = "angargstorageaccount"
   resource_group_name      = data.azurerm_resource_group.udacity.name
   location                 = data.azurerm_resource_group.udacity.location
   account_tier             = "Standard"
