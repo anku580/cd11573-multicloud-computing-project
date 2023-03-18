@@ -7,7 +7,7 @@ resource "azurerm_container_group" "udacity" {
   location            = data.azurerm_resource_group.udacity.location
   resource_group_name = data.azurerm_resource_group.udacity.name
   ip_address_type     = "Public"
-  dns_name_label      = "udacity-angarg-azure"
+  dns_name_label      = "udacity-angarg1-azure"
   os_type             = "Linux"
 
   container {
@@ -75,7 +75,7 @@ resource "azurerm_app_service_plan" "example" {
 }
 
 resource "azurerm_app_service" "example" {
-  name                = "udacity-angarg-app-service"
+  name                = "udacity-angarg12-app-service"
   location            = data.azurerm_resource_group.udacity.location
   resource_group_name = data.azurerm_resource_group.udacity.name
   app_service_plan_id = azurerm_app_service_plan.example.id
